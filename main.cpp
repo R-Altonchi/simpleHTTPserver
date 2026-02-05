@@ -16,7 +16,7 @@ int main (int argc, char *argv[]) {
     0
   };
   
-  bind(sockfd, (sockaddr*)&addr, sizeof(addr);
+  bind(sockfd, (sockaddr*)&addr, sizeof(addr));
   listen(sockfd, 10);
   printf("Server listening on port 8080...\n");
 
