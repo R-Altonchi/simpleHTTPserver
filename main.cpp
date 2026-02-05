@@ -33,12 +33,15 @@ int main (int argc, char *argv[]) {
   strcpy(response, metadata);
   
   //This is to test sending index,html
-  if (strncmp(file_request, " ", 10) == 0) {
+  if (strncmp(file_request, " ", 1) == 0) {
     FILE* f = fopen("index.html", "r");
     if (f) {
       fread(response + strlen(metadata), 1, 1024, f);
       fclose(f);
     }
+  }else if (strncmp(file_request, "api/home", 8) == 0){
+      const char* json_response = "{\"message\": \"Welcome to the home API\", \"status\": \"success\"}";
+    strcat(response, json_response);
   }else {
     const char* error = "page not found!";
     strcat(response, error);
